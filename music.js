@@ -129,28 +129,28 @@ angular.module('musicApp', ['ngResource','ui-listView', 'xeditable'])
     }
     })
   .factory('GenreService', function ($resource) {
-    return $resource("http://104.197.128.152:8000/v1/genres/:id",{id:"@id"});
+    return $resource("//104.197.128.152:8000/v1/genres/:id",{id:"@id"});
   })
   .factory('TrackListService', function ($resource) {
-    return $resource("http://104.197.128.152:8000/v1/tracks");
+    return $resource("//104.197.128.152:8000/v1/tracks");
   })
   .factory('GenreListService', function ($resource) {
-    return $resource("http://104.197.128.152:8000/v1/genres");
+    return $resource("//104.197.128.152:8000/v1/genres");
   })
   .factory('AddTrackService', function ($resource) {
-    return $resource("http://104.197.128.152:8000/v1/tracks", {title:"@title",rating:"@rating",genres:"@genres"});
+    return $resource("//104.197.128.152:8000/v1/tracks", {title:"@title",rating:"@rating",genres:"@genres"});
 })
   .factory('UpdateTrackService', function ($resource) {
-    return $resource("http://104.197.128.152:8000/v1/tracks/:id", {id:"@id",title:"@title",rating:"@rating",genres:"@genres"});
+    return $resource("//104.197.128.152:8000/v1/tracks/:id", {id:"@id",title:"@title",rating:"@rating",genres:"@genres"});
 }) 
   .factory('AddGenreService', function ($resource) {
-    return $resource("http://104.197.128.152:8000/v1/genres", {name:"@name"});
+    return $resource("//104.197.128.152:8000/v1/genres", {name:"@name"});
 })
     .factory('UpdateGenreService', function ($resource) {
-    return $resource("http://104.197.128.152:8000/v1/genres/:id", {id:"@id",name:"@name"});
+    return $resource("//104.197.128.152:8000/v1/genres/:id", {id:"@id",name:"@name"});
 })
   .factory('SearchService', function ($resource) {
-    return $resource("http://104.197.128.152:8000/v1/tracks", {title:"@title"},{
+    return $resource("//104.197.128.152:8000/v1/tracks", {title:"@title"},{
     get: {
         method: 'GET',
         isArray: true
