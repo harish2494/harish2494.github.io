@@ -1,0 +1,53 @@
+<!doctype html>
+<html ng-app="musicApp">
+  <head>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+      <link rel="stylesheet" href="bower_components/ui-listView/dist/ui-listView.css"/>
+      <link rel="stylesheet" href="bower_components/angular-xeditable/dist/css/xeditable.css"/>
+      <script src="bower_components/angular/angular.min.js"></script>
+      <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+      <script src="bower_components/ui-listView/dist/ui-listView.js"></script>
+      <script src="bower_components/angular-xeditable/dist/js/xeditable.min.js"></script>
+      <script data-require="angular-ui-bootstrap@0.3.0" data-semver="0.3.0" src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.3.0.min.js"></script>
+      <script src="music.js"></script>
+      <link rel="stylesheet" href="music.css">
+  </head>
+  <body>
+    <h2 align="center">Track Genres</h2>
+      <p align="center">[Click on the values to edit]</p>  
+    <div class="music-list panel panel-default" ng-controller="musicListController">
+<a href="Music.html">Update Genre page</a>
+        
+        <div class="search panel-heading">
+            <input class="form-control" ng-model="search.name" placeholder="Search Genre.."/>
+        </div>
+
+<br />
+        <div class="ui-list-view-striped panel-body" ui-list-view="genre in genreList | filter:search | startFrom:currentPage*pageSize | limitTo:pageSize" options="listOptions">
+            <p class="name" > 
+                <span  editable-text="genre.name">{{genre.name}}</span>
+                
+                <button ng-click="updateSingleGenre($index+(currentPage*pageSize))" class="btn btn-primary update">Rename Genre<span class="glyphicon glyphicon-pencil"></span></button>
+            </p>
+        </div>
+                <div class="paginate">
+            <button class="btn btn-primary" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+        Previous
+        </button>
+        {{currentPage+1}}/{{numberOfGenrePages()}}
+        <button align="center" class="btn btn-primary" ng-disabled="currentPage >= genreList.length/pageSize - 1" ng-click="currentPage=currentPage+1">
+        Next
+    </button></div>
+        
+        <form class="add" ng-submit="addgenre()">
+            <input class="btn btn-primary" type="button" ng-toggle="" value="Add Genre" ng-click="showDetails = ! showDetails"/>
+            <div ng-show="showDetails">
+                <input type="text" ng-model="newGenre"  size="30"
+                       placeholder="Add genre name here"/>
+            
+            <input class="btn btn-primary" type="submit" value="add">
+                </div>
+        </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+body{
+    height: 100%
+    margin: 0 auto;
+}
+
+body .panel{
+    border: none;
+}
+
+
+.music-list p {
+    margin: 0 0 0 0;
+}
+
+.music-list .ui-list-view, .music-list .search, .input-group ,.form-control, #nxt{
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+.music-list .ui-list-view{
+    height: 330px;
+}
+
+.music-list .add , .paginate{
+    text-align: center;
+        margin: 0 auto;
+}
+.ui-list-view-cell {
+    width: 95%;
+}
+.name{
+    word-wrap: break-word;
+}
+.name .rating{ display:block;float:right;width:10% margin-left:10px;}
+.name .update{ display:block;float:right;width:10% margin-left:20px;}
+
+.last{
+    display: none;
+}
+
